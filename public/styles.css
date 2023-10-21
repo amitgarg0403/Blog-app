@@ -1,0 +1,21 @@
+
+.navbar{
+    background: gold;
+    font-size: 1.2rem;
+}
+.home{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+.post{
+    background: skyblue;
+    margin: auto;
+    width: 80%;
+}
+
+.compose{
+    background-color: pink;
+    width: 40%;
+    margin:  20px auto;
+}

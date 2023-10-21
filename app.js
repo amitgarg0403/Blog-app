@@ -5,9 +5,22 @@ const express = require("express");
 const app = express();
 const PORT = 5000;
 
+// Middlewares
+app.set('view engine', "ejs")
+
+//Static Folder 'Public
+app.use(express.static("public"))
 
 app.get("/", function(req,res){
-    res.send("<h1>Hello World!</h1>")
+    res.render("Home")
+})
+
+app.get('/compose', function(req,res){
+    res.render('Compose')
+})
+
+app.get('/blogs', function(req,res){
+    res.render('blog')
 })
 
 // Listening Port

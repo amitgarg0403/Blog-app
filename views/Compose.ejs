@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    <form class="compose" action="/compose" method="post">
+        <table align="center" cellspacing="10" cellpadding="10">
+            <thead>
+                <tr><th colspan="2"><h1>Create New Post</h1></th></tr>
+            </thead>
+            <tr>
+                <th>Post Name:</th>
+                <td><input type="text"></td>
+            </tr>
+                <tr>
+                    <th>Category:</th>
+                    <td>
+                        <select name="" id="">
+                            <option >Choose</option>
+                            <option value="Science">Science</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Business">Business</option>
+                            <option value="News">News</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Post Description:</th>
+                    <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button>Create</button>  <button>Clear</button></th>
+                </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
