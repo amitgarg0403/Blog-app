@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <%- include('partials/header.ejs') %>
+    
+    
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
@@ -13,12 +15,12 @@
             </thead>
             <tr>
                 <th>Post Name:</th>
-                <td><input type="text"></td>
+                <td><input name="postTitle" type="text"></td>
             </tr>
                 <tr>
                     <th>Category:</th>
                     <td>
-                        <select name="" id="">
+                        <select name="category" id="">
                             <option >Choose</option>
                             <option value="Science">Science</option>
                             <option value="Arts">Arts</option>
@@ -32,13 +34,18 @@
                 </tr>
                 <tr>
                     <th>Post Description:</th>
-                    <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+                    <td><textarea name="postDes" id="" cols="30" rows="10"></textarea></td>
                 </tr>
                 <tr>
-                    <th colspan="2"><button>Create</button>  <button>Clear</button></th>
+                    <th colspan="2">
+                        <button type="submit" id="submit">Create </button> 
+                        <button type="reset">Clear</button>
+                    </th>
                 </tr>
         </table>
     </form>
-    
+
+    <div id="message"></div>
+
 </body>
 </html>

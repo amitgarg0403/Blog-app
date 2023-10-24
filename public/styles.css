@@ -1,5 +1,6 @@
 
 .navbar{
+    border-radius: 15px;
     background: gold;
     font-size: 1.2rem;
 }
@@ -10,12 +11,28 @@
 }
 .post{
     background: skyblue;
-    margin: auto;
+    margin: 20px auto 10px;
     width: 80%;
+    padding: 5px 20px;
+    border-radius: 20px;
 }
 
 .compose{
     background-color: pink;
     width: 40%;
     margin:  20px auto;
+}
+
+.btn-del{
+    float: right;
+    position: relative;
+    top:20px;
+    right:20px;
+    background-color: orangered;
+    border-radius: 8px;
+    width: 10%;
+    border-color:antiquewhite;
+    color: antiquewhite;
+    font-weight: 600;
+    padding: 5px;
 }
