@@ -62,6 +62,15 @@ app.post("/delete", (req,res)=>{
     res.redirect("/blogs")
 })
 
+app.post("/filter", function(req,res){
+  let f = req.body.category;
+  Blog.find({category: f})
+  .then(filter =>{
+    res.render("Blog", { POST:filter})
+  })
+  .catch((err)=>{console.log(err)})
+})
+
 // Listening Port
 app.listen(PORT, function (req, res) {
   console.log("Server Ruuning at " + PORT);

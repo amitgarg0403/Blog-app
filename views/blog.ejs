@@ -4,17 +4,44 @@
     <%- include('partials/header.ejs') %>
   </head>
   <body>
-    <%- include('partials/navbar.ejs') %> <% POST.forEach(post =>{ %>
+    <%- include('partials/navbar.ejs') %> 
+
+    <form action="/filter" method="post">
+      <div class="sort-div">
+        <select name="category" id="">
+          <option >Choose</option>
+          <option value="Science">Science</option>
+          <option value="Arts">Arts</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Business">Business</option>
+          <option value="News">News</option>
+          <option value="Politics">Politics</option>
+          <option value="Other">Other</option>
+      </select>
+      <button> Show </button>
+      </div>  
+    </form>
+
+    <div class="post-display">
+      <% if(!POST.length == 0){ %>
+      <% POST.forEach(post =>{ %>
     <form action="/delete" method="post">
       <div class="post">
         <button class="btn-del" name="deleteItem" value="<%= post.id %>" >Delete</button>
-        <h1>Title: <%= post.title %></h1>
+        <h1>Title:  <%= post.title %></h1>
         <h5>Category: <%= post.category %></h5>
 
         <p>Description: <%= post.description %></p>
       </div>
     </form>
     <% }) %>
+    <% }else { %>
+        <div class="post">
+            <h1>No Post to Show</h1>
+        </div>
+      <% } %>
+    </div>
+    
     <script>
       //   const color = () =>{
       //       let arr = ["orange", 'pink', 'green', 'skyblue',"gold"];

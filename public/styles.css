@@ -17,6 +17,10 @@
     border-radius: 20px;
 }
 
+.post-display{
+    padding-top: 50px;
+}
+
 .compose{
     background-color: pink;
     width: 40%;
@@ -35,4 +39,12 @@
     color: antiquewhite;
     font-weight: 600;
     padding: 5px;
+}
+
+.sort-div{
+    position: absolute;
+    right: 120px;
+    padding: 6px;
+    margin: 15px;
+    
 }
