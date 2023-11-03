@@ -11,8 +11,9 @@
     <form class="compose" action="/compose" method="post">
         <table align="center" cellspacing="10" cellpadding="10">
             <thead>
-                <tr><th colspan="2"><h1>Create New Post</h1></th></tr>
+                <tr><th colspan="2"><h1 class="message"><%= message %></h1></th></tr>
             </thead>
+           
             <tr>
                 <th>Post Name:</th>
                 <td><input name="postTitle" type="text"></td>
@@ -45,7 +46,7 @@
         </table>
     </form>
 
-    <div id="message"></div>
+
 
 </body>
 </html>

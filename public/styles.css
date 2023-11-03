@@ -27,6 +27,7 @@
     margin:  20px auto;
 }
 
+
 .btn-del{
     float: right;
     position: relative;
@@ -39,7 +40,10 @@
     color: antiquewhite;
     font-weight: 600;
     padding: 5px;
+    cursor: pointer;
 }
+
+
 
 .sort-div{
     position: absolute;
@@ -48,3 +52,15 @@
     margin: 15px;
     
 }
+
+/* ==============      POST COUNT FEATURE         ============== */
+.count{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.blog-count{
+    padding: 20px;
+    border-left: 6px red solid ;
+}
+

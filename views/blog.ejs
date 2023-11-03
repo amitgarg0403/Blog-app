@@ -25,12 +25,11 @@
     <div class="post-display">
       <% if(!POST.length == 0){ %>
       <% POST.forEach(post =>{ %>
-    <form action="/delete" method="post">
+    <form action="/blogs/delete" method="post">
       <div class="post">
-        <button class="btn-del" name="deleteItem" value="<%= post.id %>" >Delete</button>
+        <button class="btn-del" name="deleteItem" value="<%= post.id %>" data-edit="0" >Delete</button>
         <h1>Title:  <%= post.title %></h1>
         <h5>Category: <%= post.category %></h5>
-
         <p>Description: <%= post.description %></p>
       </div>
     </form>
