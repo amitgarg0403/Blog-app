@@ -10,16 +10,16 @@
     margin: auto;
 }
 .post{
-    background: skyblue;
-    margin: 20px auto 10px;
+   
+    margin: 30px auto;
     width: 80%;
     padding: 5px 20px;
-    border-radius: 20px;
+    border-radius: 15px;
+    border-left: red solid 6px;
+    box-shadow: -1px 0px 2px  red ;
 }
 
-.post-display{
-    padding-top: 50px;
-}
+
 
 .compose{
     background-color: pink;
@@ -33,11 +33,11 @@
     position: relative;
     top:20px;
     right:20px;
-    background-color: orangered;
+    background-color:red;
     border-radius: 8px;
     width: 10%;
     border-color:antiquewhite;
-    color: antiquewhite;
+    color:white;
     font-weight: 600;
     padding: 5px;
     cursor: pointer;
@@ -45,11 +45,12 @@
 
 
 
-.sort-div{
-    position: absolute;
-    right: 120px;
+.feature-div{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     padding: 6px;
-    margin: 15px;
+    margin: 30px auto 0;
     
 }
 

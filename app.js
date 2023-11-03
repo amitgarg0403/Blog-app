@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const _ = require("lodash")
 const PORT = 5000;
 const Schema = mongoose.Schema;
 const app = express();
@@ -43,11 +44,12 @@ app.get("/compose", function (req, res) {
 
 app.post("/compose", function (req, res) {
   const post = new Blog({
-    title: req.body.postTitle,
+    title: _.upperFirst(req.body.postTitle),
     category: req.body.category,
-    description: req.body.postDes,
+    description: _.upperFirst(req.body.postDes)
   });
   post.save();
+  console.log("Post Created!")
   res.render("compose", {message: "Post Created Successfully"})
 });
 
@@ -60,19 +62,40 @@ app.get("/blogs", async function (req, res) {
 app.post("/blogs/delete", (req,res)=>{
     let d = req.body.deleteItem;
     Blog.findByIdAndDelete(d)
-    .then(console.log("Post Deleted"))
+    .then(console.log("Post Deleted!"))
     .catch((err) =>{console.log(err)})
     res.redirect("/blogs")
 })
 
-// filter feature on Blog Page
+// filter + sort feature on Blog Page
 app.post("/filter", function(req,res){
   let f = req.body.category;
-  Blog.find({category: f})
-  .then(filter =>{
-    res.render("Blog", { POST:filter})
-  })
-  .catch((err)=>{console.log(err)})
+  let s = req.body.sort;
+  console.log(f,s);
+
+  if(f!=="Filter" && s!=="Sort"){
+    console.log("Both !Filter !sort block")
+    Blog.find({category: f}).sort({title:s})
+    .then(result =>{res.render("Blog", { POST:result})})
+    .catch((err)=>{console.log(err)})
+
+  }else if(f!=="Filter" || s!=="Sort")
+  {
+    if(f!=="Filter"){
+      console.log("!Filter block");
+      Blog.find({category: f})
+      .then(filter =>{res.render("Blog", { POST:filter})})
+      .catch((err)=>{console.log(err)})
+    }else{
+      console.log("!sort block");
+      Blog.find({}).sort({title:s})
+      .then(sort =>{res.render("Blog", { POST:sort})})
+      .catch((err)=>{console.log(err)})
+    }
+  }else{
+    console.log("Filter + Sort Block");
+    res.redirect("/blogs")
+    }
 })
 
 //count post feature on Home page
@@ -97,3 +120,5 @@ app.listen(PORT, function (req, res) {
 //2. comment under post that open in another page
 //3. edit post using put method 
 //4. show more link that open post in new page full size
+//5. sort feature in blog DONE
+
