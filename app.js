@@ -59,6 +59,16 @@ app.get("/blogs", async function (req, res) {
   res.render("Blog",{ POST: Post});
 });
 
+app.post("/blogs/find", (req,res)=>{
+  let q= _.upperFirst(req.body.findItem);
+  console.log(q)
+  Blog.find({title:q})
+  .then(result =>{res.render("Blog",{ POST: result})})
+  .catch((err)=>{console.log(err)})
+ 
+})
+
+
 app.post("/blogs/delete", (req,res)=>{
     let d = req.body.deleteItem;
     Blog.findByIdAndDelete(d)
@@ -116,7 +126,7 @@ app.listen(PORT, function (req, res) {
 
 
 //feature to be add next
-//1. search button for post
+//1. search button for post DONE
 //2. comment under post that open in another page
 //3. edit post using put method 
 //4. show more link that open post in new page full size

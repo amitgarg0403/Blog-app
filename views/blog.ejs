@@ -4,49 +4,59 @@
     <%- include('partials/header.ejs') %>
   </head>
   <body>
-    <%- include('partials/navbar.ejs') %> 
+    <%- include('partials/navbar.ejs') %>
 
-    <form action="/filter" method="post">
-      <div class="feature-div">
-        <select name="sort">
-          <option >  Sort  </option>
-          <option value="asc">A->Z</option>
-          <option value="desc">Z->A</option>
-        </select>
+    <div class="feature-div">
+      <!-- Find feature div -->
+      <div>
+        <form action="/blogs/find" method="post">
+          <input name="findItem" type="text" placeholder="Search Title" />
+          <button>Find</button>
+        </form>
+      </div>
+      <!-- Filter + Sort feature div -->
+      <div>
+        <form action="/filter" method="post">
+          <select name="sort">
+            <option>Sort</option>
+            <option value="asc">A->Z</option>
+            <option value="desc">Z->A</option>
+          </select>
+          <select name="category">
+            <option>Filter</option>
+            <option value="Science">Science</option>
+            <option value="Arts">Arts</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Business">Business</option>
+            <option value="News">News</option>
+            <option value="Politics">Politics</option>
+            <option value="Other">Other</option>
+          </select>
+          <button>Show</button>
+        </form>
+      </div>
+    </div>
 
-        <select name="category">
-          <option >  Filter  </option>
-          <option value="Science">Science</option>
-          <option value="Arts">Arts</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Business">Business</option>
-          <option value="News">News</option>
-          <option value="Politics">Politics</option>
-          <option value="Other">Other</option>
-      </select>
-      <button> Show </button>
-      </div>  
-    </form>
-
+    <!-- Post display div -->
     <div class="post-display">
       <% if(!POST.length == 0){ %>
-      <% POST.forEach(post =>{ %>
-    <form action="/blogs/delete" method="post">
-      <div class="post">
-        <button class="btn-del" name="deleteItem" value="<%= post.id %>" data-edit="0" >Delete</button>
-        <h1>Title:  <%= post.title %></h1>
-        <h5>Category: <%= post.category %></h5>
-        <p>Description: <%= post.description %></p>
-      </div>
-    </form>
-    <% }) %>
-    <% }else { %>
+        <% POST.forEach(post =>{ %>
+          <form action="/blogs/delete" method="post">
+            <div class="post">
+              <button class="btn-del" name="deleteItem" value="<%= post.id %>" data-edit="0"> Delete </button>
+              <h1>Title: <%= post.title %></h1>
+              <h5>Category: <%= post.category %></h5>
+              <p>Description: <%= post.description %></p>
+            </div>
+          </form>
+        <% }) %>
+      <% }else { %>
         <div class="post">
-            <h1>No Post to Show</h1>
+          <h1>No Post to Show</h1>
         </div>
       <% } %>
     </div>
-    
+
     <script>
       //   const color = () =>{
       //       let arr = ["orange", 'pink', 'green', 'skyblue',"gold"];

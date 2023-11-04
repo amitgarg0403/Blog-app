@@ -10,39 +10,42 @@
 
     <form class="compose" action="/compose" method="post">
         <table align="center" cellspacing="10" cellpadding="10">
+            <!-- Table Heading part -->
             <thead>
-                <tr><th colspan="2"><h1 class="message"><%= message %></h1></th></tr>
+                <tr>
+                    <th colspan="2"><h1 class="message"><%= message %></h1></th>
+                </tr>
             </thead>
-           
+            <!-- table Body part -->
             <tr>
                 <th>Post Name:</th>
                 <td><input name="postTitle" type="text"></td>
             </tr>
-                <tr>
-                    <th>Category:</th>
-                    <td>
-                        <select name="category" id="">
-                            <option >Choose</option>
-                            <option value="Science">Science</option>
-                            <option value="Arts">Arts</option>
-                            <option value="Fashion">Fashion</option>
-                            <option value="Business">Business</option>
-                            <option value="News">News</option>
-                            <option value="Politics">Politics</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Post Description:</th>
-                    <td><textarea name="postDes" id="" cols="30" rows="10"></textarea></td>
-                </tr>
-                <tr>
-                    <th colspan="2">
-                        <button type="submit" id="submit">Create </button> 
-                        <button type="reset">Clear</button>
-                    </th>
-                </tr>
+            <tr>
+                <th>Category:</th>
+                <td>
+                    <select name="category" id="">
+                        <option >Choose</option>
+                        <option value="Science">Science</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Business">Business</option>
+                        <option value="News">News</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Post Description:</th>
+                <td><textarea name="postDes" id="" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit" id="submit">Create </button> 
+                    <button type="reset">Clear</button>
+                </th>
+            </tr>
         </table>
     </form>
 

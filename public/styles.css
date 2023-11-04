@@ -1,3 +1,17 @@
+/* TEXT CSS */
+
+h1{
+    margin: 10px 0;
+}
+h5{
+    margin: 5px 0;
+}
+p{
+    margin: 15px 0;
+    text-align: justify;
+}
+
+
 
 .navbar{
     border-radius: 15px;
@@ -13,7 +27,7 @@
    
     margin: 30px auto;
     width: 80%;
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 15px;
     border-left: red solid 6px;
     box-shadow: -1px 0px 2px  red ;
@@ -30,12 +44,9 @@
 
 .btn-del{
     float: right;
-    position: relative;
-    top:20px;
-    right:20px;
     background-color:red;
     border-radius: 8px;
-    width: 10%;
+    width: 8%;
     border-color:antiquewhite;
     color:white;
     font-weight: 600;
@@ -47,7 +58,7 @@
 
 .feature-div{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 10px;
     padding: 6px;
     margin: 30px auto 0;
