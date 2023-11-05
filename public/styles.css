@@ -1,4 +1,4 @@
-/* TEXT CSS */
+/* ==============      TEXT TAG CSS       ============== */
 
 h1{
     margin: 10px 0;
@@ -11,20 +11,35 @@ p{
     text-align: justify;
 }
 
-
+/* ==============      NAVBAR CSS       ============== */
 
 .navbar{
     border-radius: 15px;
     background: gold;
     font-size: 1.2rem;
 }
+
+/* ==============      HOME PAGE       ============== */
 .home{
     text-align: center;
-    width: 80%;
-    margin: auto;
+    width: 70%;
+    margin: 40px auto;
+}
+
+.home p{
+    text-align: center;
+}
+
+/* ==============      BLOG PAGE       ============== */
+.feature-div{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 6px;
+    margin: 30px auto 0;
+    
 }
 .post{
-   
     margin: 30px auto;
     width: 80%;
     padding: 10px 20px;
@@ -33,16 +48,22 @@ p{
     box-shadow: -1px 0px 2px  red ;
 }
 
-
-
+/* ==============      COMPOSE PAGE       ============== */
 .compose{
     background-color: pink;
     width: 40%;
     margin:  20px auto;
 }
 
+/* ==============      UPDATE/EDIT FEATURE         ============== */
+.update{
+    background-color: greenyellow;
+    width: 40%;
+    margin:  20px auto;
+}
 
-.btn-del{
+/* ==============      DELETE + EDIT FEATURE       ============== */
+.btn-del, .btn-edit{
     float: right;
     background-color:red;
     border-radius: 8px;
@@ -54,19 +75,9 @@ p{
     cursor: pointer;
 }
 
-
-
-.feature-div{
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    padding: 6px;
-    margin: 30px auto 0;
-    
-}
-
 /* ==============      POST COUNT FEATURE         ============== */
 .count{
+    margin: 10px auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -74,13 +85,4 @@ p{
 .blog-count{
     padding: 20px;
     border-left: 6px red solid ;
-}
-
-
-/* ==============      UPDATE/EDIT FEATURE         ============== */
-
-.update{
-    background-color: greenyellow;
-    width: 40%;
-    margin:  20px auto;
 }

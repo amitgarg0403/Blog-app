@@ -43,7 +43,7 @@
         <% POST.forEach(post =>{ %>
           <form action="/blogs/operations" method="post">
             <div class="post">
-              <button class="btn-del" name="editItem" value="<%= post.id %>" data-edit="1">Edit</button>    
+              <button class="btn-edit" name="editItem" value="<%= post.id %>" data-edit="1">Edit</button>    
               <button class="btn-del" name="deleteItem" value="<%= post.id %>" data-edit="0"> Delete </button>
               <h1>Title: <%= post.title %></h1>
               <h5>Category: <%= post.category %></h5>

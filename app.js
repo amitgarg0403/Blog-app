@@ -149,21 +149,18 @@ app.listen(PORT, function (req, res) {
 });
 
 
-//commit on git hub first
+//commit on git hub first for any done feature
 
+//Home, Blog, Compose pages DONE
 
 //feature to be add next
 //1. search button for post DONE
-//2. comment under post that open in another page
-//3. edit post using put method working on this 
-//4. show more link that open post in new page full size
-//5. sort feature in blog DONE
+//2. comment under post STILL THINKING
+//3. edit post using post method DONE
+//4. sort feature in blog DONE
+//5. filter feature in blog DONE
+//6. delete feature in blog DONE
+//7. post counter feaature DONE
 
+//Lastly will convert code to MVC structure 
 
-// tomorrow detup edit page
-//then set route to receive edit button data  -- DONE
-// render edit page with already recieved details WITHOUT GET ROUTE   -- DONE
-//check for category whether we get it or not , it change it or not first -- PENDING 
-                // category changing but not displaying in update page when data retrieveing
-// now we click update button that will send this updated data to post route  -- DONE
-// update of post is happening  
