@@ -16,7 +16,7 @@
       </div>
       <!-- Filter + Sort feature div -->
       <div>
-        <form action="/filter" method="post">
+        <form action="/organize" method="post">
           <select name="sort">
             <option>Sort</option>
             <option value="asc">A->Z</option>
@@ -41,8 +41,9 @@
     <div class="post-display">
       <% if(!POST.length == 0){ %>
         <% POST.forEach(post =>{ %>
-          <form action="/blogs/delete" method="post">
+          <form action="/blogs/operations" method="post">
             <div class="post">
+              <button class="btn-del" name="editItem" value="<%= post.id %>" data-edit="1">Edit</button>    
               <button class="btn-del" name="deleteItem" value="<%= post.id %>" data-edit="0"> Delete </button>
               <h1>Title: <%= post.title %></h1>
               <h5>Category: <%= post.category %></h5>

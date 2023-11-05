@@ -76,3 +76,11 @@ p{
     border-left: 6px red solid ;
 }
 
+
+/* ==============      UPDATE/EDIT FEATURE         ============== */
+
+.update{
+    background-color: greenyellow;
+    width: 40%;
+    margin:  20px auto;
+}

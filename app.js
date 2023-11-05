@@ -18,9 +18,7 @@ app.use(express.static("public"));
 mongoose
   .connect("mongodb://127.0.0.1:27017/blogDB")
   .then(console.log("MongoDb Connected"))
-  .catch((err) => {
-    console.log(err);
-  });
+  .catch((err) => {console.log(err)});
 
 //Mongoose Schema
 const blogSchema = new Schema(
@@ -34,7 +32,9 @@ const Blog = mongoose.model("Blog", blogSchema);
 
 // Home Request
 app.get("/", function (req, res) {
-  res.render("Home",{Count:"" , countCat:""});
+  Blog.countDocuments()
+  .then(result=>{res.render("Home",{Count:result , countCat: "All"})})
+  .catch(err=>{console.log(err)})
 });
 
 // Compose request
@@ -50,7 +50,7 @@ app.post("/compose", function (req, res) {
   });
   post.save();
   console.log("Post Created!")
-  res.render("compose", {message: "Post Created Successfully"})
+  res.render("Compose", {message: "Post Created Successfully"})
 });
 
 // Blog page Request
@@ -59,29 +59,42 @@ app.get("/blogs", async function (req, res) {
   res.render("Blog",{ POST: Post});
 });
 
+// Search feature code
 app.post("/blogs/find", (req,res)=>{
   let q= _.upperFirst(req.body.findItem);
-  console.log(q)
   Blog.find({title:q})
   .then(result =>{res.render("Blog",{ POST: result})})
-  .catch((err)=>{console.log(err)})
- 
+  .catch((err)=>{console.log(err)}) 
 })
 
-
-app.post("/blogs/delete", (req,res)=>{
+// Delete + Edit button Working post request
+app.post("/blogs/operations", async (req,res)=>{
     let d = req.body.deleteItem;
+    let e = req.body.editItem;
+    // Edit button working code
+  if(`editItem` in req.body)
+  {
+    await Blog.findById(e)
+    .then(result=>{res.render("edit", {
+        title: (result.title),
+        category:(result.category),
+        description:(result.description),
+        id:(result.id)})})
+    .catch((err) =>{console.log(err)})
+  }
+  else
+  { 
     Blog.findByIdAndDelete(d)
     .then(console.log("Post Deleted!"))
     .catch((err) =>{console.log(err)})
     res.redirect("/blogs")
+  }
 })
 
-// filter + sort feature on Blog Page
-app.post("/filter", function(req,res){
+// filter + sort feature code
+app.post("/organize", function(req,res){
   let f = req.body.category;
   let s = req.body.sort;
-  console.log(f,s);
 
   if(f!=="Filter" && s!=="Sort"){
     console.log("Both !Filter !sort block")
@@ -108,13 +121,27 @@ app.post("/filter", function(req,res){
     }
 })
 
-//count post feature on Home page
+// Post counter feature code
 app.post("/home/count", function (req, res) {
   let q = req.body.catCount;
     Blog.countDocuments({category:q})
     .then(result=>{res.render("Home",{Count:result , countCat:q})})
     .catch(err=>{console.log(err)})
 });
+
+// Edit Post feature after button clicked
+app.post("/update", function (req, res) {
+    let title =  _.upperFirst(req.body.postTitle);
+    let category = req.body.category;
+    let description = _.upperFirst(req.body.postDes);
+    let id = req.body.id;
+
+  Blog.findByIdAndUpdate(id, {title:title, category:category, description:description }, {new:false})
+  .then( console.log("Post Updated!"))
+  .catch(err=>{console.log(err)})
+  res.redirect("/blogs")
+});
+
 
 // Listening Port
 app.listen(PORT, function (req, res) {
@@ -128,7 +155,15 @@ app.listen(PORT, function (req, res) {
 //feature to be add next
 //1. search button for post DONE
 //2. comment under post that open in another page
-//3. edit post using put method 
+//3. edit post using put method working on this 
 //4. show more link that open post in new page full size
 //5. sort feature in blog DONE
 
+
+// tomorrow detup edit page
+//then set route to receive edit button data  -- DONE
+// render edit page with already recieved details WITHOUT GET ROUTE   -- DONE
+//check for category whether we get it or not , it change it or not first -- PENDING 
+                // category changing but not displaying in update page when data retrieveing
+// now we click update button that will send this updated data to post route  -- DONE
+// update of post is happening  
